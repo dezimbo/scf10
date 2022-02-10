@@ -10,7 +10,7 @@ export const useGetData = () => {
     const updateOnClose = () => setAddeded(!addeded);
     useEffect(() => {
         const fetchData = async() => {
-            await axios.get('/api/order', {
+            await axios.get('https://scf10.herokuapp.com/api/order', {
                     headers: {
                         'Content-type': 'application/json'
                     }
