@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { pink } from '@mui/material/colors';
 import SvgIcon from '@mui/material/SvgIcon';
 
 export default function Telegram(props) {

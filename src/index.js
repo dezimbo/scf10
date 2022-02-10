@@ -8,7 +8,7 @@ import '@fontsource/roboto/700.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { red, green, cyan, indigo, amber, orange, blueGrey, lime, pink, teal } from '@mui/material/colors';
+import { indigo, pink, teal } from '@mui/material/colors';
 import {
   ruRU
 } from '@mui/x-data-grid';
