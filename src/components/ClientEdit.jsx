@@ -191,11 +191,11 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         Информация о клиенте:
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={11} md={4} lg={4}>
 
                                     <TextField
                                         // autoFocus
-
+                                        sx={{ mt: 1 }}
                                         autoComplete="off"
                                         error={false}
                                         label="Имя Фамилия"
@@ -211,12 +211,14 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     <React.Fragment key={item.id}>
                                         {/* {console.log("◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ item", item)} */}
                                         {(index >= 1) &&
-                                            <Grid item xs={4} />
+                                            <Grid item md={4} lg={4} />
                                         }
 
-                                        <Grid item xs={3}>
+                                        <Grid item xs={11} md={4} lg={4}>
 
                                             <TextField
+                                                sx={{ mt: 1 }}
+                                                fullWidth
                                                 autoComplete="off"
                                                 label="Телефон"
                                                 defaultChecked={item.phone}
@@ -225,7 +227,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
 
                                         </Grid>
                                         {/* ◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️месеенжеры◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ */}
-                                        <Grid item xs={2.5} >
+                                        <Grid item xs={10} md={3} lg={3} >
 
                                             <Checkbox
                                                 defaultChecked={!!(item.viber)}
@@ -258,9 +260,9 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         {/* ◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️месеенжеры◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ */}
 
                                         {(index >= 1) &&
-                                            <Grid item xs={0.5}>
+                                            <Grid item xs={2} sm={1} md={1} sx={{ mt: 1 }}>
                                                 <IconButton onClick={() => remove(index)} >
-                                                    <CloseIcon />
+                                                    <CloseIcon size="large" />
                                                 </IconButton>
                                                 <Grid item xs={4} />
                                             </Grid>
@@ -271,7 +273,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     </React.Fragment>
                                 ))}
 
-                                < Grid item xs={8} />
+                                < Grid item xs={7} md={8} lg={8}/>
                                 <Grid item xs={2}>
                                     {(fields.length === 1) &&
                                         <Button variant="text" size="small" onClick={() => append({ phone: "", viber: "", telegram: "", whatsApp: "" })} startIcon={<AddCircleIcon />}>
@@ -290,11 +292,11 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         Информация о устройстве:
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={11} md={4} lg={4}>
 
 
                                     <TextField
-                                        // autoFocus
+                                        sx={{ mt: 1 }}
                                         autoComplete="off"
                                         error={false}
                                         label="Модель устройства"
@@ -304,11 +306,11 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     />
 
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={11} md={6} lg={6}>
 
 
                                     <TextField
-                                        // autoFocus
+                                        sx={{ mt: 1 }}
                                         autoComplete="off"
                                         error={false}
                                         label="Заявленная несправность"
@@ -319,7 +321,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
 
 
                                 </Grid>
-                                <Grid item xs={5} sx={{ mb: 2 }}>
+                                <Grid item xs={11} md={5} lg={5} >
                                     <Controller
                                         render={({ field }) => (
                                             <Autocomplete
@@ -339,7 +341,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                         {option}
                                                     </li>
                                                 )}
-                                                sx={{ width: '100%', mt: 2 }}
+                                                sx={{ width: '100%',  }}
                                                 renderInput={(params) => (
                                                     <TextField {...params} label="Комплектация" />
                                                 )}
@@ -351,7 +353,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     />
 
                                 </Grid>
-                                <Grid item xs={5} sx={{ mb: 2 }}>
+                                <Grid item xs={11} md={5} lg={5} >
 
                                     <Controller
                                         render={({ field }) => (
@@ -372,7 +374,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                         {option}
                                                     </li>
                                                 )}
-                                                sx={{ width: '100%', mt: 2 }}
+                                                sx={{ width: '100%',  }}
                                                 renderInput={(params) => (
                                                     <TextField {...params} label="Внешний вид" />
                                                 )}
@@ -387,7 +389,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
 
 
 
-                                <Grid item xs={10}>
+                                <Grid item xs={11} md={10} lg={10}>
 
                                     <TextField
 
@@ -404,12 +406,12 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                 <Grid item xs={12}>
                                     <Divider sx={{ my: 2 }} />
                                 </Grid>
-                                <Grid item xs={7}>
+                                <Grid item xs={6} md={7} lg={7}>
                                     <Typography variant="button" gutterBottom component="div" sx={{ textAlign: 'left', }}>
                                         Готовность Заказа:
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={3} sx={{}}>
+                                <Grid item xs={4} md={3} lg={3} sx={{}}>
 
                                     <Typography variant="button" gutterBottom component="div" sx={{ textAlign: 'right', color: hasReady && teal[500]  }}>
                                       { hasReady ? 'Готов:' : 'Не готов'}<Switch color='success' {...register(`fieldsArr.0.hasReady`)} defaultChecked={printRow.hasReady} />
@@ -420,7 +422,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     <React.Fragment>
 
 
-                                        <Grid item xs={4.5}>
+                                        <Grid item xs={11} md={4.5} lg={4.5}>
 
                                             <TextField
                                                 // autoFocus
@@ -434,7 +436,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                             />
 
                                         </Grid>
-                                        <Grid item xs={3}>
+                                        <Grid item xs={11} md={3} lg={3}>
 
                                             <FormControl fullWidth>
                                                 <InputLabel >Срок гарантии</InputLabel>
@@ -457,7 +459,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                             </FormControl>
 
                                         </Grid>
-                                        <Grid item xs={2.5}>
+                                        <Grid item xs={6} md={2.5} lg={2.5}>
 
                                             <TextField
                                                 // autoFocus

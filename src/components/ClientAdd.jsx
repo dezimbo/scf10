@@ -143,9 +143,9 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
             <React.Fragment key={i}>
                 {
                     (i >= 1) ?
-                        <Grid item xs={4} />
+                        <Grid item md={4} lg={4}/>
                         :
-                        <Grid item xs={4}>
+                        <Grid item xs={11}  md={4} lg={4}>
                             <Controller
                                 name={`fieldsArr.${i}.fio`}
                                 control={control}
@@ -164,9 +164,9 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                         </Grid>
                 }
 
-                <Grid item xs={3}>
+                <Grid item xs={11} sm={4} md={4}>
                     <Controller
-
+                       
                         name={`fieldsArr.${i}.phone`}
                         control={control}
                         render={({ field }) => (
@@ -186,7 +186,7 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
 
                 </Grid>
 
-                <Grid item xs={3.5} >
+                <Grid item xs={10} md={3} lg={3} >
 
 
 
@@ -229,14 +229,14 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
 
                 </Grid>
 
-
-                <Grid item xs={1}>
-                    {(i >= 1) &&
+ {(i >= 1) &&
+                <Grid item xs={2} sm={1} md={1}>
+                   
                         <IconButton onClick={handlePhoneDel} >
-                            <CloseIcon />
+                            <CloseIcon size="large" sx={{pt:1}}/>
                         </IconButton>
-                    }
-                </Grid>
+                    
+                </Grid>}
             </React.Fragment>
         );
     }
@@ -315,7 +315,7 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
 
                                 {phoneFields}
 
-                                < Grid item xs={8} />
+                                < Grid item xs={7} md={8} lg={8} />
                                 <Grid item xs={2}>
                                     {(phoneAdd === 0) &&
                                         <Button variant="text" size="small" onClick={handlePhoneAdd} startIcon={<AddCircleIcon />}>
@@ -334,15 +334,20 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                 </Grid>
                                 {fields.map((item, i) => (
                                     <React.Fragment key={i} >
-                                        <Grid item xs={4}>
-                                            <TextField
+                                        <Grid item xs={12} sx={{ ml: -1, mt: 1 }}  >
+                                            {(i >= 1) &&
+                                                <Divider sx={{ mb: 1 }} />
+                                            }
+                                        </Grid>
+                                        <Grid item xs={11} md={4} lg={4} >
+                                            <TextField                                           
                                                 fullWidth
                                                 autoComplete="off"
                                                 label="Модель устройства"
                                                 {...register(`fieldsArr.${i}.model`)}
                                             />
                                         </Grid>
-                                        <Grid item xs={6}>
+                                        <Grid item xs={11} md={6} lg={6}>
                                             <TextField
                                                 fullWidth
                                                 autoComplete="off"
@@ -351,14 +356,8 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                             />
                                         </Grid>
 
-                                        <Grid item xs={1}>
-                                            {(i >= 1) &&
-                                                <IconButton onClick={handleDel} >
-                                                    <CloseIcon />
-                                                </IconButton>
-                                            }
-                                        </Grid>
-                                        <Grid item xs={5} sx={{ mb: 2 }}>
+
+                                        <Grid item xs={11} md={5} lg={5} >
                                             <Controller
                                                 render={({ field }) => (
                                                     <Autocomplete
@@ -377,7 +376,7 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                                                 {option}
                                                             </li>
                                                         )}
-                                                        sx={{ width: '100%', mt: 2 }}
+                                                        sx={{ width: '100%',  }}
                                                         renderInput={(params) => (
                                                             <TextField {...params} label="Комплектация" />
                                                         )}
@@ -389,7 +388,7 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                             />
 
                                         </Grid>
-                                        <Grid item xs={5} sx={{ mb: 2 }}>
+                                        <Grid item xs={11} md={5} lg={5} >
 
                                             <Controller
                                                 render={({ field }) => (
@@ -409,7 +408,7 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                                                 {option}
                                                             </li>
                                                         )}
-                                                        sx={{ width: '100%', mt: 2 }}
+                                                        sx={{ width: '100%',  }}
                                                         renderInput={(params) => (
                                                             <TextField {...params} label="Внешний вид" />
                                                         )}
@@ -421,13 +420,19 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                             />
 
                                         </Grid>
-
+                                        <Grid item xs={1} sx={{ ml: -1, mt: 1 }}  >
+                                            {(i >= 1) &&
+                                                <IconButton onClick={handleDel} >
+                                                    <CloseIcon size="large" />
+                                                </IconButton>
+                                            }
+                                        </Grid>
 
                                     </React.Fragment>
 
 
                                 ))}
-                                <Grid item xs={8} />
+                                <Grid item xs={7} md={8} lg={8} />
                                 <Grid item xs={2}>
                                     <Button variant="text" size="small" onClick={handleAdd} startIcon={<AddCircleIcon />}>
                                         Добавить
@@ -435,7 +440,7 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                 </Grid>
 
 
-                                <Grid item xs={10}>
+                                <Grid item xs={11} md={10} lg={10}>
                                     <Controller
                                         name={`fieldsArr.0.note`}
                                         control={control}

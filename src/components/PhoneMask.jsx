@@ -10,7 +10,7 @@ const MaskedTextField = IMaskMixin(
             inputRef={inputRef}
             value={defaultValue}
             autoComplete="off"
-
+            fullWidth
         />
     )
 )
