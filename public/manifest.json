@@ -1,6 +1,6 @@
 {
-  "short_name": "scf10",
-  "name": "service center f10",
+  "short_name": "SC-F10",
+  "name": "Service Center F10",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#3f51b5",
   "background_color": "#ffffff"
 }

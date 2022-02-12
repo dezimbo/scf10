@@ -1,7 +1,7 @@
 let CACHE_NAME = 'scf10';
 let urlsToCache = [
     '/',
-    '/completed'
+    // '/completed'
 ];
 
 // Install a service worker
