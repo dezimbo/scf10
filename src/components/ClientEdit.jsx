@@ -385,7 +385,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     <TextField
                                         multiline
                                         rows={2}
-                                        sx={{ mt: 1 }}
                                         autoComplete="off"
                                         error={false}
                                         label="Необходимые з.ч."
