@@ -6,7 +6,6 @@ import Registration from "./Registration";
 
 
 export const useRoutes = (isLogin) => {
-    console.log(isLogin)
     if (!isLogin) {
         
         return (

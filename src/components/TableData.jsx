@@ -109,7 +109,6 @@ export default function TableData() {
     };
 
     const handleOpenClientDel = () => setOpenClientDel(true);
-    // const handleCloseClientDel = () => setOpenClientDel(false);
     const handleOpenClientEdit = () => setOpenClientEdit(true);
     const handleCloseClientEdit = () => setOpenClientEdit(false);
     const getLastOrder = () => setLastOrder(rows[rows.length - 1].order)
@@ -157,7 +156,7 @@ export default function TableData() {
             field: 'date',
             headerName: 'Дата',
             width: 100,
-            type: 'dateTime',
+            // type: 'dateTime',
             editable: false,
 
         },
@@ -240,6 +239,13 @@ export default function TableData() {
         {
             field: 'price',
             headerName: 'Стоимость',
+            width: 70,
+            editable: false,
+            hide: true
+        },
+        {
+            field: 'parts',
+            headerName: 'Запчасти',
             width: 70,
             editable: false,
             hide: true

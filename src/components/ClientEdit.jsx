@@ -36,7 +36,8 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 // 
 
-export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseClientEdit, printRow, isReady, getCurrData  }) {
+export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseClientEdit, printRow, isReady, getCurrData }) {
+
 
 
     const [open, setOpen] = React.useState(false);
@@ -47,12 +48,12 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
     const { fields, append, remove, replace } = useFieldArray({ control, name: 'fieldsArr', });
 
     const hasReady = watch('fieldsArr.0.hasReady')
-    
+
     async function onSubmit(data) {
 
 
         try {
-            console.log("🛫~🚀~🛫 DATA_ClientEdit", data.fieldsArr)
+            // console.log("🛫~🚀~🛫 DATA_ClientEdit", data.fieldsArr)
 
             await axios.put('https://scf10.herokuapp.com/api/order/update', { ...data },
                 {
@@ -62,12 +63,12 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                 })
                 .then((res) => console.log(res))
                 .then(getCurrData(data.fieldsArr))
-                .then(updateOnClose) 
-                .then(handleClose)                
-                .then(hasReady && isReady(true))           
+                .then(updateOnClose)
+                .then(handleClose)
+                .then(hasReady && isReady(true))
 
-                
-                
+
+
 
         } catch (error) {
             console.log('🥵🥵🥵', error)
@@ -153,7 +154,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                 scroll='body'
             >
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <AppBar sx={{ position: 'relative',  }} color={hasReady ? 'success' : 'secondary'}>
+                    <AppBar sx={{ position: 'relative', }} color={hasReady ? 'success' : 'secondary'}>
                         <Toolbar variant='dense' sx={{
                             justifyContent: 'space-between',
                         }}>
@@ -164,9 +165,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                             <Typography variant="button" component="div" >
                                 {`от ${printRow.date}`}
                             </Typography>
-                            {/* <div></div> */}
                             <IconButton
-                                // edge="end"
                                 color="inherit"
                                 onClick={handleClose}
                                 aria-label="close"
@@ -186,7 +185,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
 
                                 <Grid item xs={12}>
 
-                                    {/* <Divider sx={{ mb: 1 }} /> */}
                                     <Typography variant="button" gutterBottom component="div" sx={{ textAlign: 'left', }}>
                                         Информация о клиенте:
                                     </Typography>
@@ -201,7 +199,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         label="Имя Фамилия"
                                         {...register(`fieldsArr.0.fio`)}
                                         fullWidth
-                                    // defaultValue={printRow.fio}
                                     />
 
                                 </Grid>
@@ -209,7 +206,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                 {fields.map((item, index) => (
 
                                     <React.Fragment key={item.id}>
-                                        {/* {console.log("◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ item", item)} */}
                                         {(index >= 1) &&
                                             <Grid item md={4} lg={4} />
                                         }
@@ -226,7 +222,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                             />
 
                                         </Grid>
-                                        {/* ◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️месеенжеры◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ */}
                                         <Grid item xs={10} md={3} lg={3} >
 
                                             <Checkbox
@@ -257,7 +252,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                             />
 
                                         </Grid>
-                                        {/* ◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️месеенжеры◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️◼️ */}
 
                                         {(index >= 1) &&
                                             <Grid item xs={2} sm={1} md={1} sx={{ mt: 1 }}>
@@ -267,23 +261,18 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                 <Grid item xs={4} />
                                             </Grid>
                                         }
-
-
-
                                     </React.Fragment>
                                 ))}
 
-                                < Grid item xs={7} md={8} lg={8}/>
+                                < Grid item xs={7} md={8} lg={8} />
                                 <Grid item xs={2}>
                                     {(fields.length === 1) &&
                                         <Button variant="text" size="small" onClick={() => append({ phone: "", viber: "", telegram: "", whatsApp: "" })} startIcon={<AddCircleIcon />}>
                                             Добавить
                                         </Button>
-
                                     }
 
                                 </Grid>
-
 
                                 <Grid item xs={12}>
 
@@ -293,7 +282,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={11} md={4} lg={4}>
-
 
                                     <TextField
                                         sx={{ mt: 1 }}
@@ -308,7 +296,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                 </Grid>
                                 <Grid item xs={11} md={6} lg={6}>
 
-
                                     <TextField
                                         sx={{ mt: 1 }}
                                         autoComplete="off"
@@ -318,7 +305,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         fullWidth
                                         defaultValue={printRow.fract}
                                     />
-
 
                                 </Grid>
                                 <Grid item xs={11} md={5} lg={5} >
@@ -341,7 +327,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                         {option}
                                                     </li>
                                                 )}
-                                                sx={{ width: '100%',  }}
+                                                sx={{ width: '100%', }}
                                                 renderInput={(params) => (
                                                     <TextField {...params} label="Комплектация" />
                                                 )}
@@ -374,7 +360,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                         {option}
                                                     </li>
                                                 )}
-                                                sx={{ width: '100%',  }}
+                                                sx={{ width: '100%', }}
                                                 renderInput={(params) => (
                                                     <TextField {...params} label="Внешний вид" />
                                                 )}
@@ -387,12 +373,33 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
 
                                 </Grid>
 
+                                <Grid item xs={12}>
 
+                                    <Divider sx={{ mb: 1, mt: 2 }} />
+                                    <Typography variant="button" gutterBottom component="div" sx={{ textAlign: 'left', }}>
+                                        Запасные Части:
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={11} md={6} lg={6}>
+
+                                    <TextField
+                                        multiline
+                                        rows={2}
+                                        sx={{ mt: 1 }}
+                                        autoComplete="off"
+                                        error={false}
+                                        label="Необходимые з.ч."
+                                        {...register(`fieldsArr.0.parts`)}
+                                        fullWidth
+                                        defaultValue={printRow.parts}
+                                    />
+
+                                </Grid>
 
                                 <Grid item xs={11} md={10} lg={10}>
 
                                     <TextField
-
+                                        multiline
                                         autoComplete="off"
                                         margin="dense"
                                         label="Примечание"
@@ -402,6 +409,7 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         defaultValue={printRow.note}
                                     />
                                 </Grid>
+
 
                                 <Grid item xs={12}>
                                     <Divider sx={{ my: 2 }} />
@@ -413,8 +421,8 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                 </Grid>
                                 <Grid item xs={4} md={3} lg={3} sx={{}}>
 
-                                    <Typography variant="button" gutterBottom component="div" sx={{ textAlign: 'right', color: hasReady && teal[500]  }}>
-                                      { hasReady ? 'Готов:' : 'Не готов'}<Switch color='success' {...register(`fieldsArr.0.hasReady`)} defaultChecked={printRow.hasReady} />
+                                    <Typography variant="button" gutterBottom component="div" sx={{ textAlign: 'right', color: hasReady && teal[500] }}>
+                                        {hasReady ? 'Готов:' : 'Не готов'}<Switch color='success' {...register(`fieldsArr.0.hasReady`)} defaultChecked={printRow.hasReady} />
                                     </Typography>
 
                                 </Grid>
@@ -432,7 +440,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                 label="Выполненная работа"
                                                 {...register(`fieldsArr.0.completedWork`)}
                                                 fullWidth
-                                            // defaultValue={printRow.fio}
                                             />
 
                                         </Grid>
@@ -442,11 +449,8 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                 <InputLabel >Срок гарантии</InputLabel>
                                                 <Select
                                                     defaultValue={printRow.warrPeriod || ''}
-                                                    // {...field}
                                                     fullWidth
-                                                    // value={field.value}
                                                     label="Срок гарантии"
-
                                                     {...register(`fieldsArr.0.warrPeriod`)}
                                                 >
                                                     <MenuItem value={1}>Без гарантии</MenuItem>
@@ -462,7 +466,6 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                         <Grid item xs={6} md={2.5} lg={2.5}>
 
                                             <TextField
-                                                // autoFocus
                                                 InputProps={{
                                                     endAdornment: <InputAdornment position="end">руб.</InputAdornment>,
                                                 }}
@@ -471,25 +474,21 @@ export default function ClientEdit({ updateOnClose, openClientEdit, handleCloseC
                                                 label="Стоимость"
                                                 {...register(`fieldsArr.0.price`)}
                                                 fullWidth
-                                            // defaultValue={printRow.fio}
                                             />
 
                                         </Grid>
 
 
                                     </React.Fragment>
-
-
                                 }
                             </Grid>
-
                         </Box>
 
                     </DialogContent>
                     <Divider />
                     <DialogActions>
-                        <Button color={hasReady ?'success':'secondary'} onClick={handleClose}>Отмена</Button>
-                        <Button variant="outlined" color={hasReady ? 'success' : 'secondary'} type="submit">{hasReady ?'Печать':'Сохранить'}</Button>
+                        <Button color={hasReady ? 'success' : 'secondary'} onClick={handleClose}>Отмена</Button>
+                        <Button variant="outlined" color={hasReady ? 'success' : 'secondary'} type="submit">{hasReady ? 'Печать' : 'Сохранить'}</Button>
                     </DialogActions>
                 </form>
             </Dialog>

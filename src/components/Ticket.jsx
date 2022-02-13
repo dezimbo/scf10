@@ -75,12 +75,6 @@ export const Ticket = React.forwardRef(({ printRow, currData, lastOrder }, ref) 
 
                         </Grid>
 
-                        {/* <Box sx={{ fontSize: 12, my: 0.3 }}><span style={{ fontWeight: 'bold' }}>Телефон:&nbsp;</span> {orderData[0].phone}&nbsp;{orderData[0].viber && <Viber sx={{ fontSize: 15, }} />} {orderData[0].telegram && <Telegram sx={{ fontSize: 15, }} />} </Box> */}
-
-
-                        {/* {orderData[0].phone.join(', ')} */}
-
-
                         <Grid item xs={4}>
                             <Box sx={{ fontSize: 14, my: 1, fontWeight: 'bold', textAlign: 'right' }}>Сервисный центр F10.BY </Box>
                             <Box sx={{ fontSize: 12, my: 1, fontWeight: 'bold', textAlign: 'right' }}>Телефон: +37529 606-72-85 &nbsp; <Viber sx={{ fontSize: 15, }} /> <Telegram sx={{ fontSize: 15, }} /></Box>
@@ -124,13 +118,6 @@ export const Ticket = React.forwardRef(({ printRow, currData, lastOrder }, ref) 
                         <Grid item xs={6} sx={{mt: 2}}>
                             <Box sx={{ fontSize: 12, }}><span style={{ fontWeight: 'bold' }}>Т.И. в ремонт сдал:&nbsp;</span>{orderData[0].fio} _____________ (подпись)</Box>
                         </Grid>
-                        {/* <Grid item xs={6} sx={{mt: 2}}>
-                            <Box sx={{ fontSize: 12, textAlign: 'right' }}>Подписть:__________________</Box>
-                        </Grid>
-                        <Grid item xs={6} sx={{mt: 2}}>
-                            <Box sx={{ fontSize: 12, textAlign: 'right' }}>Подписть:__________________</Box>
-                        </Grid> */}
-                        {/* <Grid item xs={2}/> */}
 
                         <Grid item xs={12}>
                             <Box sx={{ fontSize: 12, textAlign: 'center', fontWeight: 'bold', py: 3 }}> <ContentCutIcon fontSize='small' />---------------------------------------------------------------------------------------------------------------------------------------------</Box>

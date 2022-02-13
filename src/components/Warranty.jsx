@@ -140,10 +140,6 @@ export const Warranty = React.forwardRef(({ printRow, currData }, ref) => {
                                         <td  >{currData[0].completedWork} </td>
                                         <td style={{ textAlign: 'right' }}>{currData[0].price} руб. </td>
                                     </tr>
-                                    {/* <tr >
-                                        <td style={{ padding: '1rem' }}> </td>
-                                        <td style={{ textAlign: 'right' }}> </td>                    
-                                    </tr> */}
 
                                     <tr >
                                         <td colSpan={1} style={{ textAlign: 'right', fontWeight: 'bold', border: 0, width: '75%'}}>Всего по квитанции:</ td>

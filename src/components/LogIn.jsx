@@ -14,7 +14,7 @@ import {
     Box,
     FormHelperText
 } from "@mui/material";
-import { Link as RouterLink, } from "react-router-dom";
+// import { Link as RouterLink, } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext'
 
@@ -37,9 +37,6 @@ export default function Login() {
 
                 })
         } catch (error) {
-            // console.log(error.response.data);
-            // console.log(error.response.status);
-            // console.log(error.response.headers);
             if (error.response.status === 301) { setNameError(error.response.data.msg) }
             else if (error.response.status === 302) { setPassError(error.response.data.msg) }
         }
@@ -120,9 +117,9 @@ export default function Login() {
                 Войти
             </Button>
 
-            <Button component={RouterLink} to={"/registration"} sx={{ mt: "0.5rem" }}>
+            {/* <Button component={RouterLink} to={"/registration"} sx={{ mt: "0.5rem" }}>
                 Нет аккаунта?
-            </Button>
+            </Button> */}
         </Box>
     );
 };

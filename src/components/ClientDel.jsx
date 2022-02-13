@@ -41,18 +41,12 @@ export default function ClientDel({ openClientDel, setOpenClientDel, printRow, u
 
             <Dialog
                 open={openClientDel}
-                // onClose={!(openClientDel)}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
                     {`Точно удалить заказ № ${printRow.order}?`}
                 </DialogTitle>
-                <DialogContent>
-                    {/* <DialogContentText id="alert-dialog-description">
-                        {`Точно удалить заказ № `}
-                    </DialogContentText> */}
-                </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpenClientDel(false)}>Отмена</Button>
                     <Button onClick={() => delOrder(printRow.order)} autoFocus>

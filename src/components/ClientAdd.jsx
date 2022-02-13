@@ -86,7 +86,6 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
         });
         getLastOrder()
     };
-
     const handleClose = () => {
         setOpen(false);
         reset({
@@ -123,8 +122,6 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
 
     }, [numberOfField, append, remove, fields.length]);
 
-
-
     const handlePhoneAdd = () => setPhoneAdd(phoneAdd + 1);
 
     const handlePhoneDel = () => {
@@ -132,12 +129,9 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
         remove(2);
     };
 
-
-
     let phoneFields = []
 
     for (let i = 0; i <= phoneAdd; i++) {
-
 
         phoneFields.push(
             <React.Fragment key={i}>
@@ -356,7 +350,6 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                             />
                                         </Grid>
 
-
                                         <Grid item xs={11} md={5} lg={5} >
                                             <Controller
                                                 render={({ field }) => (
@@ -430,7 +423,6 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
 
                                     </React.Fragment>
 
-
                                 ))}
                                 <Grid item xs={7} md={8} lg={8} />
                                 <Grid item xs={2}>
@@ -438,7 +430,6 @@ export default function ClientAdd({ updateOnClose, getCurrData, printOpen, getLa
                                         Добавить
                                     </Button>
                                 </Grid>
-
 
                                 <Grid item xs={11} md={10} lg={10}>
                                     <Controller
