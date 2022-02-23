@@ -16,7 +16,9 @@ import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop'
 import PrintOrder from './PrintOrder';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import ReplayIcon from '@mui/icons-material/Replay';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ClientEdit from './ClientEdit';
+import ClientCopy from './ClientCopy';
 import ClientDel from './ClientDel';
 
 function CustomToolbar() {
@@ -91,6 +93,7 @@ export default function TableData() {
     const [open, setOpen] = React.useState(false);
 
     const [openClientEdit, setOpenClientEdit] = React.useState(false);
+    const [openClientCopy, setOpenClientCopy] = React.useState(false);
     const [openClientDel, setOpenClientDel] = React.useState(false);
     
 
@@ -111,6 +114,8 @@ export default function TableData() {
     const handleOpenClientDel = () => setOpenClientDel(true);
     const handleOpenClientEdit = () => setOpenClientEdit(true);
     const handleCloseClientEdit = () => setOpenClientEdit(false);
+    const handleOpenClientCopy = () => setOpenClientCopy(true);
+    const handleCloseClientCopy = () => setOpenClientCopy(false);
     const getLastOrder = () => setLastOrder(rows[rows.length - 1].order)
     const requestSearch = (searchValue) => {
         setSearchText(searchValue);
@@ -262,6 +267,7 @@ export default function TableData() {
                     e.stopPropagation(); // don't select this row after clicking                   
                     if (props === 'print') { handleClickOpen() };
                     if (props === 'edit') { handleOpenClientEdit() };
+                    if (props === 'copy') { handleOpenClientCopy() };
                     if (props === 'delete') { handleOpenClientDel() };
                     const api = params.api;
                     const thisRow = {};
@@ -287,9 +293,13 @@ export default function TableData() {
                         <IconButton onClick={(e) => onClick(e, 'edit')} size="large" color={params.row.hasReady ? "success" : "secondary"} >
                             <NoteAltIcon />
                         </IconButton>
+                        <IconButton onClick={(e) => onClick(e, 'copy')} size="large" color="primary">
+                            <FileCopyIcon />
+                        </IconButton>
                         <IconButton onClick={(e) => onClick(e, 'delete')} size="large" color="primary">
                             <DeleteForeverIcon  />
                         </IconButton>
+
                     </>
 
                 )
@@ -331,6 +341,15 @@ export default function TableData() {
                     handleCloseClientEdit={handleCloseClientEdit}
                     updateOnClose={updateOnClose}
                     isReady={isReady}
+                    getCurrData={getCurrData}
+                />
+                <ClientCopy
+                    printRow={printRow}
+                    openClientCopy={openClientCopy}
+                    handleCloseClientCopy={handleCloseClientCopy}
+                    updateOnClose={updateOnClose}
+                    printOpen={handleClickOpen}
+                    getLastOrder={getLastOrder}
                     getCurrData={getCurrData}
                 />
                 <ClientDel
