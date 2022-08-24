@@ -55,8 +55,8 @@ export default function ClientEdit({
   const hasReady = watch('fieldsArr.0.hasReady')
 
   async function onSubmit(data) {
-    hasReady && isReady(true)
-    handleClose()
+      handleClose()
+      hasReady && isReady(true)
 
     try {
       // console.log("🛫~🚀~🛫 DATA_ClientEdit", data.fieldsArr)
@@ -74,8 +74,8 @@ export default function ClientEdit({
         .then((res) => console.log(res))
         .then(getCurrData(data.fieldsArr))
         .then(updateOnClose)
-      // .then(handleClose)
-      // .then(hasReady && isReady(true))
+    //   .then(handleClose)
+    //   .then(hasReady && isReady(true))
     } catch (error) {
       console.log('🥵🥵🥵', error)
     }
