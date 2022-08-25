@@ -51,10 +51,8 @@ export default function ClientAdd({
             },
           }
         )
-        .then((res) => console.log(res))
         .then(getCurrData(data.fieldsArr))
         .then(handleClose)
-        //   .then(printOpen)
         .then(updateOnClose)
     } catch (error) {
       console.log('🥵🥵🥵', error)
@@ -148,7 +146,6 @@ export default function ClientAdd({
               control={control}
               render={({ field }) => (
                 <TextField
-                  // autoFocus
                   autoComplete='off'
                   error={false}
                   label='Имя Фамилия'
@@ -244,7 +241,7 @@ export default function ClientAdd({
     'Мех. повреждения',
     'Разбит экран',
     'Трещины на стекле',
-    'состояние б.у.',
+    'Cостояние б.у.',
   ]
 
   const equipmentData = [

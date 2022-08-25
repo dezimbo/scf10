@@ -34,7 +34,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox'
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />
 const checkedIcon = <CheckBoxIcon fontSize='small' />
-//
+
 
 export default function ClientEdit({
   updateOnClose,
@@ -55,12 +55,10 @@ export default function ClientEdit({
   const hasReady = watch('fieldsArr.0.hasReady')
 
   async function onSubmit(data) {
-      handleClose()
-      hasReady && isReady(true)
+    handleClose()
+    hasReady && isReady(true)
 
     try {
-      // console.log("🛫~🚀~🛫 DATA_ClientEdit", data.fieldsArr)
-
       await axios
         .put(
           'https://scf10.herokuapp.com/api/order/update',
@@ -71,11 +69,8 @@ export default function ClientEdit({
             },
           }
         )
-        .then((res) => console.log(res))
         .then(getCurrData(data.fieldsArr))
         .then(updateOnClose)
-    //   .then(handleClose)
-    //   .then(hasReady && isReady(true))
     } catch (error) {
       console.log('🥵🥵🥵', error)
     }
@@ -135,7 +130,7 @@ export default function ClientEdit({
     'Мех. повреждения',
     'Разбит экран',
     'Трещины на стекле',
-    'состояние б.у.',
+    'Cостояние б.у.',
   ]
 
   const equipmentData = [
