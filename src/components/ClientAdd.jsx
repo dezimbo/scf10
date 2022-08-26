@@ -39,7 +39,8 @@ export default function ClientAdd({
   getLastOrder,
 }) {
   async function onSubmit(data) {
-    await printOpen()
+    getCurrData(data.fieldsArr)
+    printOpen()
     try {
       await axios
         .post(
@@ -51,7 +52,6 @@ export default function ClientAdd({
             },
           }
         )
-        .then(getCurrData(data.fieldsArr))
         .then(handleClose)
         .then(updateOnClose)
     } catch (error) {
@@ -304,7 +304,6 @@ export default function ClientAdd({
                 columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               >
                 <Grid item xs={12}>
-                  {/* <Divider sx={{ mb: 1 }} /> */}
                   <Typography
                     variant='button'
                     gutterBottom
