@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-restricted-globals */
 let CACHE_NAME = 'scf10';
 let urlsToCache = [
     '/',
@@ -51,7 +53,9 @@ self.addEventListener('push', event => {
     const data = event.data.json()
     console.log('New notification', data)
     const options = {
-        body: data.body,
+      body: data.body,
+      icon: 'logo-512.png',
+    //   image: data.image,
     }
     event.waitUntil(
         self.registration.showNotification(data.title, options)
