@@ -1,27 +1,28 @@
-const convertedVapidKey = urlBase64ToUint8Array(process.env.REACT_APP_PUBLIC_VAPID_KEY)
+const convertedVapidKey = urlBase64ToUint8Array(
+  'BNf_ZVWkUZmgBV42-eh-TEX0TPHbJFK7WRSffkrMiYPkLKAsilYsy0-T3LyuXnmFNv8HD688lUAk9_d9-Yxjg34'
+)
 
 function urlBase64ToUint8Array(base64String) {
-  var padding = '='.repeat((4 - (base64String.length % 4)) % 4)
-  // eslint-disable-next-line no-useless-escape
-  var base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/')
+    const padding = "=".repeat((4 - base64String.length % 4) % 4)
+    // eslint-disable-next-line
+    const base64 = (base64String + padding).replace(/\-/g, "+").replace(/_/g, "/")
 
-  var rawData = window.atob(base64)
-  var outputArray = new Uint8Array(rawData.length)
+    const rawData = window.atob(base64)
+    const outputArray = new Uint8Array(rawData.length)
 
-  for (var i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i)
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i)
     }
-    console.log("🚀 ~ outputArray", outputArray)
-  return outputArray
+    return outputArray
 }
 
 function sendSubscription(subscription) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/notifications/subscribe`, {
-        method: 'POST',
-        body: JSON.stringify(subscription),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+    return fetch(`https://scf10.herokuapp.com/api/notifications/subscribe`, {
+      method: 'POST',
+      body: JSON.stringify(subscription),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
 }
 
