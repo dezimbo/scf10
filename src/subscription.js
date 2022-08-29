@@ -1,5 +1,5 @@
 const convertedVapidKey = urlBase64ToUint8Array(
-  'BNf_ZVWkUZmgBV42-eh-TEX0TPHbJFK7WRSffkrMiYPkLKAsilYsy0-T3LyuXnmFNv8HD688lUAk9_d9-Yxjg34'
+  'BENz2AEWjLAvtUTt2lMXQH-LKN5n0zxPUYltZBXRm65CX-hdLswqV0MkY7Uj81h6DNAZ83CbR4PHO9xHfZha4yc'
 )
 
 function urlBase64ToUint8Array(base64String) {
